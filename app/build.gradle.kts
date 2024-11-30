@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.arun.instaclone"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.arun.instaclone"
