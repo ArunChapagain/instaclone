@@ -45,11 +45,11 @@ data class TagsResponse(
                 @Json(name = "comment_count")
                 val commentCount: Int,
                 @Json(name = "cover")
-                val cover: String,
+                val cover: String?,
                 @Json(name = "cover_height")
-                val coverHeight: Int,
+                val coverHeight: Int?,
                 @Json(name = "cover_width")
-                val coverWidth: Int,
+                val coverWidth: Int?,
                 @Json(name = "datetime")
                 val datetime: Int,
                 @Json(name = "description")
@@ -63,9 +63,9 @@ data class TagsResponse(
                 @Json(name = "id")
                 val id: String,
                 @Json(name = "images")
-                val images: List<Image>,
+                val images: List<Image>?,
                 @Json(name = "images_count")
-                val imagesCount: Int,
+                val imagesCount: Int?,
                 @Json(name = "in_gallery")
                 val inGallery: Boolean,
                 @Json(name = "in_most_viral")
