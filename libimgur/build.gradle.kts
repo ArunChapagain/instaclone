@@ -25,5 +25,7 @@ dependencies{
     implementation(libs.moshi)
     // for moshi code generation and kapt is kotlin annotation processing tool
     "kapt"(libs.moshi.kotlin.codegen)
+    // unit test
+    testImplementation(libs.junit)
 
 }
