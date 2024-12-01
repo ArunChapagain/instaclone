@@ -1,11 +1,10 @@
 package com.arun.libimgur.models
 
-
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class GalleryTagsResponse(
+data class TagsResponse(
     @Json(name = "data")
     val `data`: Data,
     @Json(name = "status")
@@ -105,8 +104,7 @@ data class GalleryTagsResponse(
                 val views: Int,
                 @Json(name = "vote")
                 val vote: Any?
-            ) {
-            }
+            )
         }
     }
 }
