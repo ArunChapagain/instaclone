@@ -1,5 +1,7 @@
 package com.arun.libimgur.apis
 
+import com.arun.libimgur.ImgurClient
+import com.arun.libimgur.params.Section
 import com.arun.libimgur.services.ImgurAPIv3
 import okhttp3.OkHttpClient
 import org.junit.Assert.assertNotNull
@@ -9,25 +11,23 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 class ImgurAPIv3Test {
 
-    private val client = OkHttpClient.Builder().addInterceptor {
-        val request = it.request().newBuilder()
-            .addHeader("Authorization", "Client-ID b6f98ee072eb23e").build()
-        it.proceed(request)
-    }
-    private val retrofit = Retrofit.Builder()
-        .client(client.build())
-        .addConverterFactory(MoshiConverterFactory.create()).baseUrl("https://api.imgur.com/3/")
-        .build()
-    private val api = retrofit.create(ImgurAPIv3::class.java)
+    private val api = ImgurClient.api
+
     @Test
     fun `get tags working`() {
         val response = api.getTags().execute()
+        println("response: $response")
         assertNotNull(response.body())
     }
 
     @Test
-    fun `get galleries working`() {
-        val response = api.getGallery().execute()
+    fun `get galleries -hot working`() {
+        val response = api.getGallery(Section.HOT).execute()
+        assertNotNull(response.body())
+    }
+    @Test
+    fun `get galleries -top working`() {
+        val response = api.getGallery(Section.TOP).execute()
         assertNotNull(response.body())
     }
 }
