@@ -26,7 +26,7 @@ class ImgurAPIv3Test {
     }
 
     @Test
-    fun `get gallery working`() {
+    fun `get galleries working`() {
         val response = api.getGallery().execute()
         assertNotNull(response.body())
     }
