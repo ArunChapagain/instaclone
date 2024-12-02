@@ -9,12 +9,22 @@
         android:id="@+id/navigation_hot"
         android:name="com.arun.instaclone.ui.feed.FeedFragment"
         android:label="Hot"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_feed">
+        <argument
+            android:name="feedType"
+            android:defaultValue="hot"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_top"
         android:name="com.arun.instaclone.ui.feed.FeedFragment"
         android:label="Top"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_feed">
+        <argument
+            android:name="feedType"
+            android:defaultValue="top"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
