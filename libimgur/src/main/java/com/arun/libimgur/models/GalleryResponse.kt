@@ -17,7 +17,7 @@ data class GalleryResponse(
         @Json(name = "ad_type") val adType: Int,
         @Json(name = "ad_url") val adUrl: String,
         @Json(name = "animated") val animated: Boolean?,
-        @Json(name = "bandwidth") val bandwidth: Int?,
+        @Json(name = "bandwidth") val bandwidth: Long?,
         @Json(name = "comment_count") val commentCount: Int,
         @Json(name = "cover") val cover: String?,
         @Json(name = "cover_height") val coverHeight: Int?,
