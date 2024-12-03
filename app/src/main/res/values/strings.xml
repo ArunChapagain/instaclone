@@ -2,5 +2,6 @@
     <string name="app_name">instaclone</string>
     <string name="nav_hot">Hot</string>
     <string name="nav_top">Top</string>
+    <string name="instapost">instaPost</string>
 
 </resources>

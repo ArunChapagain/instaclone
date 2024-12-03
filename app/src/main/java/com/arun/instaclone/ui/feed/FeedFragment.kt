@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.arun.instaclone.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
@@ -17,10 +17,11 @@ class FeedFragment : Fragment() {
     }
 
     private val viewModel: FeedViewModel by viewModels()
+    private val _feedAdapter = FeedRecycleAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val feed = arguments?.getString("feedType")//from navigation bar
+        val feed = arguments?.getString("feedType")//from navigation bar Todo:turn into enum
 // if feet is available then update the feed
         feed?.let {
             viewModel.updateFeed(it)
@@ -34,9 +35,10 @@ class FeedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
-
+        binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.feedRecyclerView.adapter = _feedAdapter
         viewModel.feed.observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), "Download ${it.size}", Toast.LENGTH_SHORT).show()
+            _feedAdapter.submitList(it)
         }
         return binding.root
     }
