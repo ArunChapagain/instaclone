@@ -16,9 +16,11 @@ kotlin {
     }
 }
 // dependencies for the libimgur module have to be defined manually
-dependencies{
+dependencies {
+    // for coroutines
+    implementation(libs.kotlinx.coroutines.core)
     //    retrofit
-    implementation(libs.retrofit)
+    api(libs.retrofit)
     // for json serialization
     implementation(libs.converter.moshi)
     // for moshi

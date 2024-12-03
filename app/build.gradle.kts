@@ -49,6 +49,8 @@ dependencies {
     implementation(project(":libimgur"))
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
+    // for coroutines
+    implementation(libs.kotlinx.coroutines.android)
     // unit test
     testImplementation(libs.junit)
     // integration test
