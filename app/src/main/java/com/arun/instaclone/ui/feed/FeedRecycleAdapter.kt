@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
+import coil3.request.error
+import coil3.request.placeholder
+import com.arun.instaclone.R
 import com.arun.instaclone.databinding.ListItemGalleryImageBinding
 import com.arun.libimgur.models.GalleryResponse
 
@@ -70,6 +73,10 @@ class FeedRecycleAdapter() :
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val image = getItem(position)
         holder.binding.captionTextView.text = image.title
-        holder.binding.imageView.load("https://imgur.com/${image.cover}.jpg")
+        holder.binding.imageView.load("https://imgur.com/${image.cover}.jpg") {
+            placeholder(R.drawable.image_placeholder)
+            error(R.drawable.image_placeholder)
+            // you can add more options here like caching, transformations, etc.
+        }
     }
 }
