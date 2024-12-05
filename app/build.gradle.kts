@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     // for coroutines
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.runtime.android)
     // unit test
     testImplementation(libs.junit)
     // integration test

@@ -1,8 +1,11 @@
 package com.arun.instaclone.data
 
 import com.arun.libimgur.ImgurClient
+import com.arun.libimgur.models.Gallery
 import com.arun.libimgur.models.GalleryResponse
 import com.arun.libimgur.models.Image
+import com.arun.libimgur.models.Tag
+import com.arun.libimgur.models.TagsResponse
 import com.arun.libimgur.params.Section
 
 class ImgurRepository {
@@ -19,4 +22,11 @@ class ImgurRepository {
         val response = api.getGallery(Section.TOP)
         return response.body()?.data
     }
+
+    suspend fun getTags(): List<Tag>?
+    {
+        val response = api.getTags()
+        return response.body()?.data?.tags
+    }
+
 }
