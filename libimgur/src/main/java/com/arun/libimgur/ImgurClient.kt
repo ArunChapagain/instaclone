@@ -2,6 +2,7 @@ package com.arun.libimgur
 
 import com.arun.libimgur.converter.EnumConverterFactory
 import com.arun.libimgur.services.ImgurAPIv3
+import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -9,6 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object ImgurClient {
 
     private const val API_KEY = "b6f98ee072eb23e" // TODO: ideally this should be in app not in lib
+
 
     //httpClient is created only when it is needed
     private val httpClient: OkHttpClient by lazy {

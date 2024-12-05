@@ -5,6 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Image(
+    @Json(name = "images")
+    val images: List<Image?>?,
     @Json(name = "account_id")
     val accountId: Any?,
     @Json(name = "account_url")
