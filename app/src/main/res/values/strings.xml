@@ -3,5 +3,6 @@
     <string name="nav_hot">Hot</string>
     <string name="nav_top">Top</string>
     <string name="instapost">instaPost</string>
+    <string name="story_head_image">story_head_image</string>
 
 </resources>
