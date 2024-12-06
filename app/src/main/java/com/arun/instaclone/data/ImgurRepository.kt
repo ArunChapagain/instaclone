@@ -29,4 +29,8 @@ class ImgurRepository {
         return response.body()?.data?.tags
     }
 
+    suspend fun getTagGallery(tagName: String): List<Image>? {
+        val response = api.getTag(tagName)
+        return response.body()?.data?.items
+    }
 }

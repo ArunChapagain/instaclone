@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil3.request.ImageRequest
 import com.arun.instaclone.databinding.FragmentFeedBinding
+import coil3.imageLoader
+import coil3.request.CachePolicy
 
 class FeedFragment : Fragment() {
 
@@ -38,6 +40,15 @@ class FeedFragment : Fragment() {
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.feedRecyclerView.adapter = _feedAdapter
         viewModel.feed.observe(viewLifecycleOwner) {
+
+            it.forEach { image ->
+                val request = ImageRequest.Builder(requireContext())
+                    .data( "https://imgur.com/${image.cover}.jpg")
+                    .diskCachePolicy(CachePolicy.DISABLED)
+                    .build()
+              requireContext().imageLoader.enqueue(request)
+
+            }
             _feedAdapter.submitList(it)
         }
         return binding.root

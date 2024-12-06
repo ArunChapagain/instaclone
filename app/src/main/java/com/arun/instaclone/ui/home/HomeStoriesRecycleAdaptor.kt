@@ -1,6 +1,6 @@
-package com.arun.instaclone.ui.stories
+package com.arun.instaclone.ui.home
 
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,14 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.error
 import coil3.request.placeholder
-import coil3.size.Scale
 import com.arun.instaclone.R
 import com.arun.instaclone.databinding.ListItemStoryHeadBinding
+import com.arun.instaclone.ui.story.StoryActivity
 import com.arun.libimgur.models.Tag
-import kotlin.math.log
 
-class StoriesAdaptor :
-    ListAdapter<Tag, StoriesAdaptor.StoriesViewHolder>(StoriesDiffCallback()) {
+class HomeStoriesRecycleAdaptor :
+    ListAdapter<Tag, HomeStoriesRecycleAdaptor.StoriesViewHolder>(StoriesDiffCallback()) {
 
     class StoriesViewHolder(var binding: ListItemStoryHeadBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -50,9 +49,19 @@ class StoriesAdaptor :
 
         holder.binding.storyHeadTextView.text = story.displayName
         holder.binding.storyHeadImageView.load("https://imgur.com/${story.backgroundHash}.jpg") {
-            placeholder(R.drawable.image_placeholder)
-            error(R.drawable.image_placeholder)
             // you can add more options here like caching, transformations, etc.
+            holder.binding.root.apply {//apply gives context to the lambda
+                setOnClickListener()
+                {
+                    // navigate to story activity
+                    context.startActivity(
+                        Intent(context, StoryActivity::class.java).apply {
+                            putExtra("tag", story.name)
+                        }
+                    )
+                }
+            }
         }
     }
 }
+

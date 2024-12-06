@@ -5,6 +5,10 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Image(
+    @Json(name = "images_count")
+    val imagesCount: Int?,
+    @Json(name = "is_album")
+    val isAlbum: Boolean?,
     @Json(name = "images")
     val images: List<Image?>?,
     @Json(name = "account_id")

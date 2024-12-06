@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.activity)
     // unit test
     testImplementation(libs.junit)
     // integration test
@@ -61,4 +62,5 @@ dependencies {
     //image loading library for Android that wraps image loading, resizing, memory and disk caching, and bitmap recycling into a simple and easy-to-use interface.
     implementation("io.coil-kt.coil3:coil-compose:3.0.4")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+    implementation("io.coil-kt.coil3:coil-gif:3.0.4")
 }
