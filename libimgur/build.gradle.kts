@@ -20,6 +20,7 @@ dependencies {
     // for coroutines
     implementation(libs.kotlinx.coroutines.core)
     //    retrofit
+    //TODO: export only created objects
     api(libs.retrofit)
     // for json serialization
     implementation(libs.converter.moshi)
