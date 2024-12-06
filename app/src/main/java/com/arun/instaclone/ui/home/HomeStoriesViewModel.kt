@@ -1,6 +1,5 @@
-package com.arun.instaclone.ui.stories
+package com.arun.instaclone.ui.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +9,7 @@ import com.arun.libimgur.models.Tag
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class StoriesViewModel :ViewModel() {
+class HomeStoriesViewModel :ViewModel() {
     private val repo = ImgurRepository()
     private val _tags = MutableLiveData<List<Tag>>()
     val tags: LiveData<List<Tag>> = _tags
